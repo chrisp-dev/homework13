@@ -1,8 +1,8 @@
 {
   "name": "homework13",
   "version": "1.0.0",
-  "description": "Node Express Handlebars Mysql",
-  "main": "index.js",
+  "description": "MVC Node Express Handlebars Mysql",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
