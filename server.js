@@ -14,23 +14,10 @@ app.use(express.json());
 app.engine('handlebars', bars({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-// basic get route, make sure handlebars works
-app.get('/', (req, res) => {
-    const burgeregrubs = [{
-        id: 1,
-        name: 'Freddie\'s Hawaiian Volcano Burger',
-        devoured: false
-    }, {
-        id: 2,
-        name: 'Big Bacon Burger',
-        devoured: false
-    }, {
-        id: 3,
-        name: 'Falcon Punch Burger',
-        devoured: true
-    }]
-    res.render('index', { burgeregrubs });
-});
+// Import routes
+const routes = require('./controllers/burgeregrub.controller');
+app.use(routes);
+
 
 // Start server and begin listening for requests
 app.listen(PORT, () => {

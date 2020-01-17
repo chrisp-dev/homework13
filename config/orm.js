@@ -59,7 +59,7 @@ const orm = {
         var queryString = "UPDATE " + table;
 
         queryString += " SET ";
-        queryString += objToSql(objColVals);
+        queryString += parseSql(objColVals);
         queryString += " WHERE ";
         queryString += condition;
 

@@ -1,21 +1,21 @@
 $(document).ready(function () {
-    $('.change-devour').on('click', (event) => {
+    $('.change-devour').on('click', function (event) {
         const burgeregrubId = $(this).attr('data-id');
         const newdevoured = $(this).attr('data-newdevoured');
-        const bugeregrub = {
+        const burgeregrub = {
             id: burgeregrubId,
             devoured: newdevoured
         };
-
-        $.ajax('/api/burgeregrub', {
+        console.log(burgeregrub);
+        $.ajax('/api/burgeregrub/' + burgeregrubId, {
             method: 'PUT',
-            body: bugeregrub
+            data: burgeregrub
         }).then(res => {
-            alert('yay! view the console');
-            console.log(res);
+            location.reload();
         });
     });
-    $('.delete-burgeregrub').on('click', (event) => {
+
+    $('.delete-burgeregrub').on('click', function (event) {
         const burgeregrubId = $(this).attr('data-id');
 
         $.ajax('/api/burgeregrub/' + burgeregrubId, {
