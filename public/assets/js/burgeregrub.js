@@ -18,11 +18,11 @@ $(document).ready(function () {
     $('.delete-burgeregrub').on('click', (event) => {
         const burgeregrubId = $(this).attr('data-id');
 
-        $.ajax('/api/burgeregrub', {
+        $.ajax('/api/burgeregrub/' + burgeregrubId, {
             method: 'DELETE',
         }).then(res => {
-            alert('DELETED! view the console');
-            console.log(res);
+            console.log('DELETED burgeregrub ' + burgeregrubId);
+            location.reload();
         });
     });
 });
