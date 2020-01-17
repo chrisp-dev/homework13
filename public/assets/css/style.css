@@ -1,0 +1,23 @@
+* {
+    font-family: 'Roboto','Candara',sans-serif;
+    color: rgb(224, 139, 139);
+}
+
+html, body{
+    font-size: 22px;
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    background: linear-gradient(33deg,black,salmon);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body h1:first-of-type{
+    color: black;
+    text-shadow: 2px 2px 2em white;
+    border: 1px solid saddlebrown;
+}
