@@ -11,10 +11,15 @@
     "url": "git+https://github.com/chrisp-dev/homework13.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Chris Paradeise",
+  "license": "GNU",
   "bugs": {
     "url": "https://github.com/chrisp-dev/homework13/issues"
   },
-  "homepage": "https://github.com/chrisp-dev/homework13#readme"
+  "homepage": "https://github.com/chrisp-dev/homework13#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1"
+  }
 }
