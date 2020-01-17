@@ -16,7 +16,20 @@ app.set('view engine', 'handlebars');
 
 // basic get route, make sure handlebars works
 app.get('/', (req, res) => {
-    res.render('index');
+    const burgeregrubs = [{
+        id: 1,
+        name: 'Freddie\'s Hawaiian Volcano Burger',
+        devoured: false
+    }, {
+        id: 2,
+        name: 'Big Bacon Burger',
+        devoured: false
+    }, {
+        id: 3,
+        name: 'Falcon Punch Burger',
+        devoured: true
+    }]
+    res.render('index', { burgeregrubs });
 });
 
 // Start server and begin listening for requests

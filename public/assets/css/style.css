@@ -18,6 +18,25 @@ body {
 
 body h1:first-of-type{
     color: black;
-    text-shadow: 2px 2px 2em white;
-    border: 1px solid saddlebrown;
+    text-shadow: 2px 2px 11px white;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+section {
+    width: 50%;
+}
+
+ul:first-of-type li {
+    color:white;
+    list-style: none;
+}
+
+main {
+    display: flex;
+    text-align: center;
+    color: pink;
+    background: rgba(150,50,50,0.5);
 }

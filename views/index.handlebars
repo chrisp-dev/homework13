@@ -1,2 +1,23 @@
 <h1>Eat-A-Burger!</h1>
 <h1>Please, Remember to tip your Waitstaff!</h1>
+<main>
+    <section>
+        <h2>Burgers waiting to be devoured!</h2>
+        <ul>
+
+            {{#each burgeregrubs}}
+            {{> burgeregrub/burgeregrub devoured=false}}
+            {{/each}}
+        </ul>
+    </section>
+
+    <section>
+        <h2>Burgers being digested.</h2>
+        <ul>
+
+            {{#each burgeregrubs}}
+            {{> burgeregrub/burgeregrub devoured=true}}
+            {{/each}}
+        </ul>
+    </section>
+</main>
