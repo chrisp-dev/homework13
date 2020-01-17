@@ -1,14 +1,12 @@
 // Get MySQL up and running!
 const mysql = require('mysql');
-
+const env = process.env.NODE_ENV || 'development';
+let config = require('./config.json')[env];
+if (!config) {
+    config = process.env.DATABASE_URL;
+}
 // Create Connection Object
-const connection = mysql.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: '',
-    database: 'burgeregrub_db'
-});
+const connection = mysql.createConnection(config);
 
 // Connect
 connection.connect((err) => {

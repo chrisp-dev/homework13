@@ -1,0 +1,9 @@
+{
+    "development": {
+        "user": "root",
+        "password": "password",
+        "database": "burgeregrub_db",
+        "host": "localhost",
+        "port": 3306
+    }
+}

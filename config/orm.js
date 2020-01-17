@@ -59,9 +59,9 @@ const orm = {
         var queryString = "UPDATE " + table;
 
         queryString += " SET ";
-        queryString += parseSql(objColVals);
+        queryString += parseSql(objColVals); // devoured=true
         queryString += " WHERE ";
-        queryString += condition;
+        queryString += condition; // id = 1
 
         console.log(queryString);
         connection.query(queryString, function (err, result) {
