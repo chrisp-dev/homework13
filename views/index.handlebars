@@ -6,7 +6,9 @@
         <ul>
 
             {{#each burgeregrubs}}
+            {{#if devoured}}
             {{> burgeregrub/burgeregrub devoured=false}}
+            {{/if}}
             {{/each}}
         </ul>
     </section>
@@ -14,9 +16,10 @@
     <section>
         <h2>Burgers being digested.</h2>
         <ul>
-
             {{#each burgeregrubs}}
+            {{#unless devoured}}
             {{> burgeregrub/burgeregrub devoured=true}}
+            {{/unless}}
             {{/each}}
         </ul>
     </section>

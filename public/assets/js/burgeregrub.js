@@ -13,9 +13,16 @@ $(document).ready(function () {
         }).then(res => {
             alert('yay! view the console');
             console.log(res);
-        }).catch(err => {
-            alert('oops :/');
-            console.error(err);
+        });
+    });
+    $('.delete-burgeregrub').on('click', (event) => {
+        const burgeregrubId = $(this).attr('data-id');
+
+        $.ajax('/api/burgeregrub', {
+            method: 'DELETE',
+        }).then(res => {
+            alert('DELETED! view the console');
+            console.log(res);
         });
     });
 });
