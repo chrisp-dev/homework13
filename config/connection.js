@@ -5,7 +5,6 @@ let config = require('./config.json')[env];
 if (!config) {
     config = process.env.DATABASE_URL;
 }
-console.log(config);
 // Create Connection Object
 const connection = mysql.createConnection(config);
 
