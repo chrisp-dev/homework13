@@ -6,7 +6,7 @@ $(document).ready(function () {
             id: burgeregrubId,
             devoured: newdevoured
         };
-        console.log(burgeregrubId);
+        console.log('burgeregrubid: ', burgeregrubId);
         $.ajax('/api/burgeregrub/' + burgeregrubId, {
             method: 'PUT',
             data: burgeregrub
