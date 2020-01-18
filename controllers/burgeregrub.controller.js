@@ -6,23 +6,6 @@ const burgeregrub = require('../models/burgeregrub.model');
 
 // Create all the routes
 router.get('/', (req, res) => {
-    // basic get route, make sure handlebars works
-    // app.get('/', (req, res) => {
-    const burgeregrubs = [{
-        id: 1,
-        name: 'Scoob\'s Hawaiian Volcano Burger',
-        devoured: false
-    }, {
-        id: 2,
-        name: 'Big Bacon Burger',
-        devoured: false
-    }, {
-        id: 3,
-        name: 'Falcon Punch Burger',
-        devoured: true
-    }]
-    // res.render('index', { burgeregrubs });
-    // });
     burgeregrub.all((data) => {
         res.render('index', { burgeregrubs: data });
     });
