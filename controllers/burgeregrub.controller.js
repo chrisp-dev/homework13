@@ -11,14 +11,16 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/api/burgeregrubs', (req, res) => {
-    burgeregrub.create([
-        "name", "devoured"
-    ], [
-        req.body.name, req.body.devoured
-    ], (result) => {
+router.get('/add', (req, res) => {
+    res.render('add-burger');
+});
+
+router.post('/api/burgers', (req, res) => {
+    burgeregrub.create(req.body, (result) => {
         // Send back the id of the new burgeregrub
-        res.json({ id: result.insertId });
+        // res.json({ id: result.insertId });
+        console.log(result);
+        res.redirect("/");
     });
 });
 

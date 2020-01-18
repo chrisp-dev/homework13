@@ -1,0 +1,27 @@
+<h1>Eat-A-Burger!</h1>
+<h1>Please, Remember to tip your Waitstaff!</h1>
+<aside>
+    <nav>
+        <a href="/">View Burgers</a>
+    </nav>
+</aside>
+<main>
+    <section>
+        <h2>Add New Burger</h2>
+        <form action="/api/burgers" method="POST" class="create-form">
+
+            <div class="form-group">
+                <label for>Burger Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for>Devoured?</label><br>
+                <input type="radio" name="devoured" value="1" checked> Done Been Devoured!<br>
+                <input type="radio" name="devoured" value="0"> Ready To Eat
+            </div>
+
+            <button type="submit">Add Burger</button>
+        </form>
+    </section>
+</main>

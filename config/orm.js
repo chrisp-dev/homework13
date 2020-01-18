@@ -38,14 +38,23 @@ const parseSql = (obj) => {
 const orm = {
     all: function (tableName, done) {
         const qs = `SELECT * FROM ??;`;
-        connection.query(qs, [tableName], function (err, result) {
+        connection.query(qs, tableName, function (err, result) {
             if (err) {
                 throw err;
             }
+            console.log(result);
             done(result);
         });
     },
-    create: function (tableName, cols, vals, done) {
+    create: function (tableName, body, done) {
+        const cols = [];
+        const vals = [];
+        for (let atom in body) {
+            console.log('atom: ', atom)
+            cols.push(atom);
+            vals.push(body[atom]);
+        }
+        console.log(cols, vals);
         let qs = `INSERT INTO ${tableName}`;
         qs += ` (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)});`;
 
