@@ -40,9 +40,8 @@ router.put('/api/burgeregrub/:id', (req, res) => {
 });
 
 router.delete('/api/burgeregrub/:id', (req, res) => {
-    const burgeregrubId = req.params.id;
-
-    burgeregrub.delete(burgeregrubId, (result) => {
+    const condition = "id = " + req.params.id;
+    burgeregrub.delete(condition, (result) => {
         if (result.affectedRows == 0) {
             // no rows changed, 404
             res.status(404).end();
