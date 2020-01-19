@@ -19,7 +19,6 @@ router.post('/api/burgers', (req, res) => {
     burgeregrub.create(req.body, (result) => {
         // Send back the id of the new burgeregrub
         // res.json({ id: result.insertId });
-        console.log(result);
         res.redirect("/");
     });
 });
