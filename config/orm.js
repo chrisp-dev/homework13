@@ -42,19 +42,18 @@ const orm = {
             if (err) {
                 throw err;
             }
-            console.log(result);
             done(result);
         });
     },
     create: function (tableName, body, done) {
         const cols = [];
         const vals = [];
+
         for (let atom in body) {
-            console.log('atom: ', atom)
             cols.push(atom);
             vals.push(body[atom]);
         }
-        console.log(cols, vals);
+
         let qs = `INSERT INTO ${tableName}`;
         qs += ` (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)});`;
 
@@ -72,7 +71,6 @@ const orm = {
         queryString += " WHERE ";
         queryString += condition; // id = 1
 
-        console.log(queryString);
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
