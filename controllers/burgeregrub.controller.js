@@ -6,48 +6,71 @@ const burgeregrub = require('../models/burgeregrub.model');
 
 // Create all the routes
 router.get('/', (req, res) => {
-    burgeregrub.all((data) => {
-        res.render('index', { burgeregrubs: data });
-    });
+    try {
+
+        burgeregrub.all((data) => {
+            res.render('index', { burgeregrubs: data });
+        });
+    } catch {
+        res.status(500).end();
+    }
 });
 
 router.get('/add', (req, res) => {
-    res.render('add-burger');
+    try {
+
+        res.render('add-burger');
+    } catch {
+        res.status(500).end();
+    }
 });
 
 router.post('/api/burgers', (req, res) => {
-    burgeregrub.create(req.body, (result) => {
-        // Send back the id of the new burgeregrub
-        // res.json({ id: result.insertId });
-        res.redirect("/");
-    });
+    try {
+
+        burgeregrub.create(req.body, (result) => {
+            // Send back the id of the new burgeregrub
+            // res.json({ id: result.insertId });
+            res.redirect("/");
+        });
+    } catch {
+        res.status(500).end();
+    }
 });
 
 router.put('/api/burgeregrub/:id', (req, res) => {
-    const conditionCol = 'id = ' + req.params.id;
+    try {
+        const conditionCol = 'id = ' + req.params.id;
 
-    burgeregrub.update({
-        devoured: req.body.devoured
-    }, conditionCol, (result) => {
-        // if no rows changed, 404
-        if (result.changedRows = 0) {
-            res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
-    });
+        burgeregrub.update({
+            devoured: req.body.devoured
+        }, conditionCol, (result) => {
+            // if no rows changed, 404
+            if (result.changedRows = 0) {
+                res.status(404).end();
+            } else {
+                res.status(200).end();
+            }
+        });
+    } catch {
+        res.status(500).end();
+    }
 });
 
 router.delete('/api/burgeregrub/:id', (req, res) => {
-    const condition = "id = " + req.params.id;
-    burgeregrub.delete(condition, (result) => {
-        if (result.affectedRows == 0) {
-            // no rows changed, 404
-            res.status(404).end();
-        } else {
-            res.status(200).end();
-        }
-    });
+    try {
+        const condition = "id = " + req.params.id;
+        burgeregrub.delete(condition, (result) => {
+            if (result.affectedRows == 0) {
+                // no rows changed, 404
+                res.status(404).end();
+            } else {
+                res.status(200).end();
+            }
+        });
+    } catch {
+        res.status(500).end();
+    }
 });
 
 module.exports = router;

@@ -40,7 +40,7 @@ const orm = {
         const qs = `SELECT * FROM ??;`;
         connection.query(qs, tableName, function (err, result) {
             if (err) {
-                throw err;
+                console.error(err);
             }
             done(result);
         });
@@ -58,7 +58,8 @@ const orm = {
         qs += ` (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)});`;
 
         connection.query(qs, vals, function (err, result) {
-            if (err) throw err;
+            if (err)
+                console.error(err);
             done(result);
         });
     },
@@ -73,7 +74,8 @@ const orm = {
 
         connection.query(queryString, function (err, result) {
             if (err) {
-                throw err;
+
+                console.error(err);
             }
 
             cb(result);
@@ -86,7 +88,8 @@ const orm = {
 
         connection.query(queryString, function (err, result) {
             if (err) {
-                throw err;
+
+                console.error(err);
             }
 
             cb(result);
